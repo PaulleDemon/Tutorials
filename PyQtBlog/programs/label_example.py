@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication, QLabel
 
 if __name__ == '__main__':
 
-    app = QApplication(sys.argv)
+    app = QApplication(sys.arg)
 
     label = QLabel("Sample label")
     label.show()
