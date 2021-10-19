@@ -1,15 +1,12 @@
 import sys
-from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QLabel
 
 
 if __name__ == '__main__':
 
-    app = QtWidgets.QApplication([])
+    app = QApplication([])
 
-    win = QtWidgets.QWidget()
-    win.setLayout(QtWidgets.QVBoxLayout())
-    win.layout().addWidget(QtWidgets.QLabel("Sample label"))
-
-    win.show()
+    label = QLabel("Sample label")
+    label.show()
 
     sys.exit(app.exec())
