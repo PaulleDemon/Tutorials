@@ -15,7 +15,8 @@ if __name__ == '__main__':
     v_layout = QVBoxLayout()
 
     label = QLabel("Sample label")
-    button = QPushButton("Button") # create an instance of QPushbutton
+
+    button = QPushButton("Button")
     button.clicked.connect(change_button_text)
     
     v_layout.addWidget(label)
