@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtGui
+from PyQt5 import QtWidgets, QtGui, QtCore
 from datetime import datetime
 
 
@@ -23,7 +23,15 @@ class MainWindow(QtWidgets.QWidget):
         self.scroll_area.addWidget(scroll_widget) # adds our scroll_widget to the scroll_area.
 
         self.scroll_area.setWidgetResizable(True) # important to show the scroll bars
-    
+
+        self.create_btn = QtWidgets.QPushButton("Create", objectName="create_btn") # the object name will help us specifically style this button, this is like giving classname/id in html, to be later styled using css
+
+        self.title_input = QtWidgets.QLineEdit()
+        self.description_input = QtWidgets.QTextEdit()
+        self.time_input = QtWidgets.QDateTimeEdit() # Yes pyqt provides a widget to edit datetime
+        self.time_input.setMinimumDateTime(QtCore.QDateTime.currentDateTime()) # set minimum date, Qt provides QDateTime which is just for convenience. 
+        # you can get the currenttime using QDateTime.currentDateTime
+        
 
     def add_todo(self, title: str, description: str, date_time: str): 
         """
