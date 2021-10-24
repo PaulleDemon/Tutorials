@@ -9,6 +9,8 @@ class MainWindow(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
+        self.setObjectName("main_window")# This will help us style specific widget width the object name TodoView, 
+
         container_layout = QtWidgets.QGridLayout()
         self.setLayout(container_layout) # set the layout for pur container
 
@@ -67,10 +69,11 @@ class MainWindow(QtWidgets.QWidget):
             the :str after title and description are type annotation(refer internet)
         """
 
-        widget = CustomTodoWidget(title=title)  # We will create this widget below and add to scroll layout
+        widget = CustomTodoWidget(title=title, parent=self)  # We will create this widget below and add to scroll layout
         widget.set_description(description=description)
         widget.set_datetime(date_time=date_time)
-
+        # widget.setStyleSheet('QWidget{background-color: red; border: 1px solid black;')
+        print(widget.styleSheet())
         self.scroll_widget_layout.addWidget(widget) # add new todo widget to the layout        
 
 
@@ -79,6 +82,8 @@ class CustomTodoWidget(QtWidgets.QWidget):
 
     def __init__(self, title:str="", *args, **kwargs):
         super(CustomTodoWidget, self).__init__(*args, **kwargs) 
+
+        self.setObjectName("todo_view") # This will help us style specific widget with the object name TodoView, similar to class/id in css
 
         current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S') # we will use the current time as default for date time label
 
@@ -103,7 +108,8 @@ class CustomTodoWidget(QtWidgets.QWidget):
         grid_layout.addWidget(self.date_time_lbl, 0, 0) # add datetime label at row=0, column=0
         grid_layout.addWidget(self.title_lbl, 1, 0, 1, 2) # add title lable at row=1, column=0, rowspan=1, columnspan=2
         grid_layout.addWidget(self.delete_bnt, 1, 3) 
-        grid_layout.addWidget(self.description_lbl, 2, 0, 1, 3) # add title lable at row=2, column=0, rowspan=1, columnspan=3
+        grid_layout.addWidget(self.show_more_btn, 2, 0)
+        grid_layout.addWidget(self.description_lbl, 3, 0, 1, 3) # add title lable at row=2, column=0, rowspan=1, columnspan=3
 
         self.setLayout(grid_layout) # set this widgets layout
 

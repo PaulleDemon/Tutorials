@@ -10,12 +10,21 @@ QLabel{
     background-color: transparent;
 }
 
-QScrollArea{
-    background-color: #f6f5f5;
+QScrollArea QWidget{ /* style child of a widget by specifying it with a space */
+    background-color: #e4d6d6;
 }
 
-#input_frame{  /*This will style that specific widget with input_frame as object name*/
-    background-color: #f6f5f5;
+QLineEdit, QTextArea, QDateTimeEdit{  /* style multiple widgets seperated by a comma */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#input_frame{  /* This will style that specific widget with input_frame as object name (note the '#' infront) */
+    background-color: #e4d6d6;
+}
+
+#scroll_widget #todo_view{
+    background-color: #00ff37;
 }
 
 #create_btn{
@@ -23,4 +32,8 @@ QScrollArea{
     background-color: #3b3b3b;
     border-radius: 15px;
     padding: 10px;
+}
+
+#create_btn:hover{
+    background-color: #535353;
 }

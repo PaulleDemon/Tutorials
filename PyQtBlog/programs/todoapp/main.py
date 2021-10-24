@@ -13,5 +13,5 @@ if __name__ == "__main__":
     win = MainWindow()
     win.show() # show the window
 
-    app.setStyleSheet(theme)
+    win.setStyleSheet(theme)
     sys.exit(app.exec())
