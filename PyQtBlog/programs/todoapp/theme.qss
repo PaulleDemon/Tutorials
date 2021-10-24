@@ -1,0 +1,26 @@
+*{
+    font-size: 16px;
+    font-family: sans-serif;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+QLabel{
+    color: #111111; /* text color*/
+    background-color: transparent;
+}
+
+QScrollArea{
+    background-color: #f6f5f5;
+}
+
+#input_frame{  /*This will style that specific widget with input_frame as object name*/
+    background-color: #f6f5f5;
+}
+
+#create_btn{
+    color: #ffffff; /* text color */
+    background-color: #3b3b3b;
+    border-radius: 15px;
+    padding: 10px;
+}
