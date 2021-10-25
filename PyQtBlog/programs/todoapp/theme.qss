@@ -10,6 +10,10 @@ QLabel{
     background-color: transparent;
 }
 
+QPushButton{
+    padding: 5px;
+}
+
 QScrollArea QWidget{ /* style child of a widget by specifying it with a space */
     background-color: #e4d6d6;
 }
@@ -23,8 +27,20 @@ QLineEdit, QTextArea, QDateTimeEdit{  /* style multiple widgets seperated by a c
     background-color: #e4d6d6;
 }
 
-#scroll_widget #todo_view{
-    background-color: #00ff37;
+#todo_view{
+    background-color: #f7f7f7;
+}
+
+#todo_view QLabel{
+    background-color: transparent;
+}
+
+#todo_view QPushButton{
+    background-color: #e0e0e0;
+}
+
+#todo_view QPushButton:hover{
+    background-color: #b9b8b8;
 }
 
 #create_btn{
@@ -36,4 +52,52 @@ QLineEdit, QTextArea, QDateTimeEdit{  /* style multiple widgets seperated by a c
 
 #create_btn:hover{
     background-color: #535353;
+}
+
+/* styling the QScrollArea scroll bars*/
+QScrollArea QScrollBar:vertical{
+    width: 25px;
+    margin: 15px 3px 15px 3px;
+    border-radius: 4px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+   background: none;
+}
+
+QScrollArea QScrollBar::handle:vertical{
+    background-color: #b1a9a9;         /* #605F5F; */
+    min-height: 5px;
+}
+
+QScrollBar::add-line:vertical {
+     border: none;
+     background: none;
+     width: 0px;
+}
+
+QScrollBar::sub-line:vertical {
+     border: none;
+     background: none;
+     width: 0px;
+}
+
+QDateTimeEdit::up-button {
+    border-radius: 2px;
+    image: url(icons/uparrow-dark.png); /* adds custom up arrow icon */
+    margin: 2px;
+}
+
+QDateTimeEdit::down-button {
+    border-radius: 2px;
+    image: url(icons/downarrow-dark.png); /* adds custom down arrow icon */
+    margin: 2px;
+}
+
+QDateTimeEdit::up-button:hover {
+    background-color: #b9b8b8;
+}
+
+QDateTimeEdit::down-button:hover {
+    background-color: #b9b8b8;
 }

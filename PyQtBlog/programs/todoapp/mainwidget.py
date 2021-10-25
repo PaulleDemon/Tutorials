@@ -62,6 +62,9 @@ class MainWindow(QtWidgets.QWidget):
         date_time = self.datetime_input.dateTime().toString("dd/MM/yyyy hh:mm:ss") # returns string
 
         self.create_todo(title, description, date_time)
+        
+        self.title_input.clear() # clear input after adding to todo list 
+        self.description_input.clear()
 
     def create_todo(self, title: str, description: str, date_time: str): 
         """
@@ -72,13 +75,16 @@ class MainWindow(QtWidgets.QWidget):
         widget = CustomTodoWidget(title=title, parent=self)  # We will create this widget below and add to scroll layout
         widget.set_description(description=description)
         widget.set_datetime(date_time=date_time)
-        # widget.setStyleSheet('QWidget{background-color: red; border: 1px solid black;')
-        print(widget.styleSheet())
+        # widget.setStyleSheet('background-color: red; border: 1px solid black;')
+
         self.scroll_widget_layout.addWidget(widget) # add new todo widget to the layout        
 
 
-class CustomTodoWidget(QtWidgets.QWidget):
-    """ This widget will have delete button and a label to display time and title """
+class CustomTodoWidget(QtWidgets.QFrame):
+    """ 
+        This widget will have delete button and a label to display time and title 
+        We will use Frame as our container
+    """
 
     def __init__(self, title:str="", *args, **kwargs):
         super(CustomTodoWidget, self).__init__(*args, **kwargs) 

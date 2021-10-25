@@ -11,6 +11,7 @@ if __name__ == "__main__":
         theme = f_obj.read()
     
     win = MainWindow()
+    win.setWindowTitle("TodoApp")
     win.show() # show the window
 
     win.setStyleSheet(theme)
