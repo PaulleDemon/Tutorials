@@ -28,7 +28,8 @@ class CustomLabel(QtWidgets.QLabel):
         """
         super(CustomLabel, self).mouseMoveEvent(event)
         self.end_point = event.pos() # This will return the current mouse position
-    
+        self.update() # we will have to update the paint so the rectangle is visible
+
     def mouseReleaseEvent(self, event: QtGui.QMouseEvent):
         """
             This method will be called whenever the mouse is released.
@@ -46,6 +47,7 @@ class CustomLabel(QtWidgets.QLabel):
 
         if event.key() == QtCore.Qt.Key_Escape: # The Qt class contains constants such as Key_Escape for esc key, you have many more key constants in it such as Key_A, for A key etc.
             self._draw_rect = False # In the next loop in the paint event the rectangle will not be drawn
+            self.update() # we will have to update the paint so the rectangle is invisible
 
 
     def paintEvent(self, event: QtGui.QPaintEvent) -> None:
@@ -64,7 +66,6 @@ class CustomLabel(QtWidgets.QLabel):
 
             painter.drawRect(QtCore.QRect(self.start_point, self.end_point)) # The QRect will store 4 points of a rectangle(or two QPoints). You could also have stored it in a list, but the draw_rect method expects a QRect instance.
 
-        self.update() # we will have to update the paint so the rectangle is visible
 
 
 if __name__ == "__main__":
